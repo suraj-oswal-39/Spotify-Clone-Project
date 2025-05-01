@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-bar">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="SVGs/favicon.ico">
+    <title>Sangeet - Spotify Clone Project</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+    <link rel="icon" href="data:,">
+</head>
+
+<body>
+    <nav class="nav-bar">
+        <svg xmlns="http://www.w3.org/2000/svg" stroke="#b3b3b3" class="menu" role="menu" viewBox="0 0 24 24" width="24"
+            height="24" color="#000000" fill="none">
+            <path
+                d="M14 18C14 16.4596 14 15.6893 14.3467 15.1235C14.5407 14.8069 14.8069 14.5407 15.1235 14.3467C15.6893 14 16.4596 14 18 14C19.5404 14 20.3107 14 20.8765 14.3467C21.1931 14.5407 21.4593 14.8069 21.6533 15.1235C22 15.6893 22 16.4596 22 18C22 19.5404 22 20.3107 21.6533 20.8765C21.4593 21.1931 21.1931 21.4593 20.8765 21.6533C20.3107 22 19.5404 22 18 22C16.4596 22 15.6893 22 15.1235 21.6533C14.8069 21.4593 14.5407 21.1931 14.3467 20.8765C14 20.3107 14 19.5404 14 18Z"
+                stroke-width="1.5" />
+            <path
+                d="M2 18C2 16.4596 2 15.6893 2.34673 15.1235C2.54074 14.8069 2.80693 14.5407 3.12353 14.3467C3.68934 14 4.45956 14 6 14C7.54044 14 8.31066 14 8.87647 14.3467C9.19307 14.5407 9.45926 14.8069 9.65327 15.1235C10 15.6893 10 16.4596 10 18C10 19.5404 10 20.3107 9.65327 20.8765C9.45926 21.1931 9.19307 21.4593 8.87647 21.6533C8.31066 22 7.54044 22 6 22C4.45956 22 3.68934 22 3.12353 21.6533C2.80693 21.4593 2.54074 21.1931 2.34673 20.8765C2 20.3107 2 19.5404 2 18Z"
+                stroke-width="1.5" />
+            <path
+                d="M14 6C14 4.45956 14 3.68934 14.3467 3.12353C14.5407 2.80693 14.8069 2.54074 15.1235 2.34673C15.6893 2 16.4596 2 18 2C19.5404 2 20.3107 2 20.8765 2.34673C21.1931 2.54074 21.4593 2.80693 21.6533 3.12353C22 3.68934 22 4.45956 22 6C22 7.54044 22 8.31066 21.6533 8.87647C21.4593 9.19307 21.1931 9.45926 20.8765 9.65327C20.3107 10 19.5404 10 18 10C16.4596 10 15.6893 10 15.1235 9.65327C14.8069 9.45926 14.5407 9.19307 14.3467 8.87647C14 8.31066 14 7.54044 14 6Z"
+                stroke-width="1.5" />
+            <path
+                d="M2 6C2 4.45956 2 3.68934 2.34673 3.12353C2.54074 2.80693 2.80693 2.54074 3.12353 2.34673C3.68934 2 4.45956 2 6 2C7.54044 2 8.31066 2 8.87647 2.34673C9.19307 2.54074 9.45926 2.80693 9.65327 3.12353C10 3.68934 10 4.45956 10 6C10 7.54044 10 8.31066 9.65327 8.87647C9.45926 9.19307 9.19307 9.45926 8.87647 9.65327C8.31066 10 7.54044 10 6 10C4.45956 10 3.68934 10 3.12353 9.65327C2.80693 9.45926 2.54074 9.19307 2.34673 8.87647C2 8.31066 2 7.54044 2 6Z"
+                stroke-width="1.5" />
+        </svg>
+        <div class="website-logo">
+            <img src="SVGs/spotify-logo.svg" class="website-icon" title="Spotify">
+        </div>
+        <div class="home-search-bar">
+            <div class="home-icon">
+                <img src="SVGs/home-icon.svg" title="Home">
+            </div>
+            <div class="search-bar">
+                <svg xmlns="http://www.w3.org/2000/svg" class="search-icon" role="search-icon" height="24" width="24"
+                    fill="#b3b3b3" data-encore-id="icon" aria-hidden="true" viewBox="0 0 24 24">
+                    <path
+                        d="M10.533 1.27893C5.35215 1.27893 1.12598 5.41887 1.12598 10.5579C1.12598 15.697 5.35215 19.8369 10.533 19.8369C12.767 19.8369 14.8235 19.0671 16.4402 17.7794L20.7929 22.132C21.1834 22.5226 21.8166 22.5226 22.2071 22.132C22.5976 21.7415 22.5976 21.1083 22.2071 20.7178L17.8634 16.3741C19.1616 14.7849 19.94 12.7634 19.94 10.5579C19.94 5.41887 15.7138 1.27893 10.533 1.27893ZM3.12598 10.5579C3.12598 6.55226 6.42768 3.27893 10.533 3.27893C14.6383 3.27893 17.94 6.55226 17.94 10.5579C17.94 14.5636 14.6383 17.8369 10.533 17.8369C6.42768 17.8369 3.12598 14.5636 3.12598 10.5579Z">
+                    </path>
+                </svg>
+                <input type="text" placeholder="What do you want to play?" class="input-field">
+                <div class="close-icon">
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="left-container">
+            <header class="lib-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" class="library-icon" role="library-icon" fill="#b3b3b3"
+                    height="24" width="24" data-encore-id="icon" aria-hidden="true" viewBox="0 0 24 24">
+                    <path
+                        d="M3 22a1 1 0 0 1-1-1V3a1 1 0 0 1 2 0v18a1 1 0 0 1-1 1zM15.5 2.134A1 1 0 0 0 14 3v18a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V6.464a1 1 0 0 0-.5-.866l-6-3.464zM9 2a1 1 0 0 0-1 1v18a1 1 0 1 0 2 0V3a1 1 0 0 0-1-1z">
+                    </path>
+                </svg> Your Library
+            </header>
+            <div class="song-list">
+                <ul>
+                    <!--here, we display lists of the songs-->
+                </ul>
+            </div>
+        </div>
+        <div class="right-container">
+            <div class="sangeet-playlists">
+                <h1 id="h1-title">Spotify Playlists</h1>
+                <div class="cardsContainer">
+                    <!--here, we display lists of the albums-->
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bottom-container">
+        <div class="song-info">
+            <p></p>
+        </div>
+        <div class="play-bar">
+            <div class="song-button">
+                <svg xmlns="http://www.w3.org/2000/svg" id="previous" role="previous-icon" fill="#b3b3b3"
+                    data-encore-id="icon" aria-hidden="true" viewBox="0 0 16 16">
+                    <path
+                        d="M3.3 1a.7.7 0 0 1 .7.7v5.15l9.95-5.744a.7.7 0 0 1 1.05.606v12.575a.7.7 0 0 1-1.05.607L4 9.149V14.3a.7.7 0 0 1-.7.7H1.7a.7.7 0 0 1-.7-.7V1.7a.7.7 0 0 1 .7-.7h1.6z">
+                    </path>
+                </svg>
+                <div class="play-button">
+                    <img id="play" src="SVGs/play-icon.svg">
+                </div>
+                <svg xmlns="http://www.w3.org/2000/svg" id="next" role="next-icon" fill="#b3b3b3" data-encore-id="icon"
+                    aria-hidden="true" viewBox="0 0 16 16">
+                    <path
+                        d="M12.7 1a.7.7 0 0 0-.7.7v5.15L2.05 1.107A.7.7 0 0 0 1 1.712v12.575a.7.7 0 0 0 1.05.607L12 9.149V14.3a.7.7 0 0 0 .7.7h1.6a.7.7 0 0 0 .7-.7V1.7a.7.7 0 0 0-.7-.7h-1.6z">
+                    </path>
+                </svg>
+            </div>
+            <div class="song-time-bar">
+                <div class="song-run-time">00:00</div>
+                <div class="seek-bar">
+                    <div class="seek-bar-fill"></div>
+                    <div class="seek-bar-circle"></div>
+                </div>
+                <div class="song-duration">00:00</div>
+            </div>
+        </div>
+        <div class="sound">
+            <div class="volume-controller">
+                <div class="volume-image">
+                    <img src="SVGs/high-unmute-icon.svg">
+                </div>
+                <div class="volume-bar">
+                    <div class="volume-bar-fill"></div>
+                    <div class="volume-bar-circle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

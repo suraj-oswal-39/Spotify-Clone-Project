@@ -1,0 +1,796 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+
+* {
+    padding: 0;
+    font-family: "Roboto", sans-serif;
+    font-size: 16px;
+    scrollbar-color: #ffffff4d #121212;
+}
+
+body {
+    background-color: #000000;
+    color: #ffffff;
+}
+
+::-webkit-scrollbar {
+    background-color: #121212;
+}
+
+::-webkit-scrollbar-button {
+    background-color: #ffffff4d;
+}
+
+::-webkit-scrollbar-corner {
+    background-color: #121212;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #ffffff4d;
+}
+
+::-webkit-scrollbar-track {
+    background-color: #121212;
+}
+/*Nav Bar Styling*/
+.nav-bar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    column-gap: 23%;
+    width: 100%;
+}
+
+.website-logo {
+    display: flex;
+    padding-left: 20px;
+}
+
+.website-icon {
+    cursor: pointer;
+}
+
+.home-search-bar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    height: 48px;
+    width: 45%;
+    margin-right: -11.1%;
+}
+
+.home-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #1f1f1f;
+    min-width:48px;
+    width: 48px;
+    min-height: 48px;
+    height: 48px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.home-icon:hover {
+    transform: scale(1.05);
+    transition: ease-in-out 0.1s;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background-color: #1f1f1f;
+    color: #b3b3b3;
+    width: 86%;
+    height: 92%;
+    border-radius: 50px;
+    border: 2px solid transparent;
+}
+
+.search-bar:focus-within {
+    color: #ffffff;
+    transition: ease-in-out 0.3s;
+    border-color: #ffffff;
+}
+
+.search-bar:hover,
+.search-bar:hover .input-field {
+    background-color: #2a2a2a;
+    transition: ease-in-out 0.3s;
+}
+
+.search-bar:hover .search-icon,
+.search-bar:focus-within .search-icon {
+    fill: #ffffff;
+    transition: fill 0.3s ease-in-out;
+}
+
+.input-field {
+    background-color: #1f1f1f;
+    color: #b3b3b3;
+    border-top-style: none;
+    border-bottom-style: none;
+    border-left-style: none;
+    outline: none;
+    border-right-width: 1px;
+    width: 84%;
+    height: 50%;
+}
+
+.input-field:focus-within {
+    color: #ffffff;
+    transition: ease-in-out 0.3s;
+}
+
+.close-icon:hover svg, .close-icon:hover path {
+    stroke: #ffffff;
+    fill: #ffffff;
+    transition: fill 0.1s ease-in-out;
+    transform: scale(1.05);
+}
+
+.container {
+    position: relative;
+    display: flex;
+    flex: 1;
+    margin: 8px 0;
+}
+
+/*Left Container Styling*/
+.left-container {
+    background-color: #121212;
+    height: 79.2vh;
+    width: 35.5%;
+    border-radius: 7px;
+    margin-right: 8px;
+}
+
+.lib-icon {
+    display: inline-flex;
+    color: #b3b3b3;
+    align-items: center;
+    font-weight: bold;
+    gap: 12px;
+    padding: 20px 24px;
+    cursor: pointer;
+}
+
+.lib-icon:hover,
+.lib-icon:hover .library-icon {
+    color: #ffffff;
+    transition: 0.3s linear;
+    fill: #ffffff;
+    transition: fill 0.1s linear;
+}
+
+.song-list {
+    display: flex;
+    padding: 0px 24px;
+    height: 85%;
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+
+.song-list:hover,
+.cardsContainer:hover {
+    overflow-y: auto;
+}
+
+.song-list ul {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    cursor: pointer;
+    width: 100%;
+    height: fit-content;
+}
+
+.song-list ul li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border: #b3b3b3 1.5px solid;
+    border-radius: 8px;
+    padding: 0 8px;
+    cursor: pointer;
+}
+
+.song-list ul li:hover,
+.song-list ul li:focus-within {
+    border: #ffffff 1.5px solid;
+    transition: linear 0.1s;
+}
+
+.song-title {
+    display: flex;
+    flex: 1;
+    color: #b3b3b3;
+}
+
+.play-now {
+    display: flex;
+    flex: 1;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 12px;
+    opacity: 0;
+}
+
+.song-list ul li:hover .play-now,
+.song-list ul li:hover .song-title,
+.song-list ul li:hover .music-icon-stroke,
+.song-list ul li:focus-within {
+    stroke: #ffffff;
+    color: #ffffff;
+    opacity: 1;
+    transition: linear 0.1s;
+    cursor: pointer;
+}
+
+.song-list ul li:hover .music-icon-fill {
+    fill: #ffffff;
+    transition: linear 0.1s;
+}
+
+.music-icon-size {
+    min-width: 24px;
+    width: 24px;
+    min-height: 24px;
+    height: 24px;
+}
+
+/*Right Container Styling*/
+.right-container {
+    background-color: #121212;
+    height: 79.2vh;
+    width: 64.5%;
+    border-radius: 7px;
+}
+
+.sangeet-playlists {
+    display: flex;
+    flex-direction: column;
+    padding: 16px 24px;
+    height: 96%;
+}
+
+h1 {
+    padding-bottom: 16px;
+    font-size: 24px;
+}
+
+h1 span {
+    font-size: 24px;
+    cursor: pointer;
+    transition: color 0.1s ease;
+}
+
+h1 span:hover {
+    color: #1db954;
+}
+
+.cardsContainer {
+    display: flex;
+    flex-wrap: wrap;
+    overflow-y: hidden;
+}
+
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 136px;
+    border-radius: 12px;
+    padding: 12px;
+    cursor: pointer;
+}
+
+.card:hover {
+    background-color: #2a2a2a;
+    transition: ease-in-out 0.1s;
+}
+
+.card-image {
+    width: 100%;
+    height: 163.6px;
+}
+
+.card-play-icon {
+    opacity: 0;
+    position: absolute;
+    bottom: 12px;
+    left: 58%;
+    background-color: #1db954;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    padding: 12px;
+}
+
+.card:hover .card-play-icon {
+    opacity: 1;
+    bottom: 30%;
+    transition: 0.2s ease-in-out;
+}
+
+.card-play-icon:hover {
+    transform: scale(1.05);
+    background-color: #3be477;
+}
+
+.card-text {
+    display: flex;
+    height: 38.400px;
+    padding-top: 12px;
+    color: #b3b3b3;
+    overflow: hidden;
+}
+
+/*Bottom Container Styling*/
+.bottom-container {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 12.6vh;
+}
+
+.song-info {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+.song-info p {
+    display: inline-flex;
+    flex-wrap: wrap;
+    margin: 8px 16px;
+    width: 85%;
+}
+
+.play-bar {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.song-button {
+    position: absolute;
+    top: 4%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+}
+
+.song-button img,
+.song-button svg {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+}
+
+.song-button svg:hover path {
+    fill: #ffffff;
+    transition: fill 0.1s ease-in-out;
+    transform: scale(1.05);
+}
+
+.play-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+}
+
+.play-button:hover {
+    transform: scale(1.05);
+    transition: ease-in-out 0.1s;
+}
+
+.song-time-bar {
+    position: absolute;
+    bottom: 16%;    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    overflow: none;
+}
+
+.song-run-time {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+.progress-bar {
+    display: flex;
+}
+
+.seek-bar {
+    position: relative;
+    display: flex;
+    background-color: #4d4d4d;
+    border-radius: 16px;
+    height: 4px;
+    width: 100%;
+    cursor: pointer;
+}
+
+.seek-bar-fill {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #ffffff;
+    border-radius: 16px;
+    height: 100%;
+    width: 0%;
+    transition: width 0.2s linear;
+}
+
+.song-time-bar:hover .seek-bar-fill {
+    background-color: #1db954;
+}
+
+.seek-bar-circle {
+    position: absolute;
+    top: 50%;
+    left: 0%;
+    transform: translate(-50%, -50%);
+    background-color: #ffffff;
+    /*1d80b9*/
+    /*border: #ffffff 1px solid;*/
+    border-radius: 50%;
+    height: 12px;
+    width: 12px;
+    transition: left 0.2s linear;
+    cursor: pointer;
+    display: none;
+}
+
+.song-time-bar:hover .seek-bar-circle {
+    display: block;
+}
+
+.song-duration {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+
+.sound {
+    display: flex;
+    justify-content: end;
+    width: 82.4%;
+    height: 100%;
+    padding-right: 24px;
+}
+
+.menu {
+    display: none;
+}
+
+.volume-controller {
+    position: relative;
+    bottom: -20%;
+    
+    display: flex;
+    align-items: center;
+    width: 36.53%;
+    height: 32px;
+    cursor: pointer;
+}
+
+.volume-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 32px;
+    width: 32px;
+    height: 32px;
+}
+
+.volume-bar {
+    position: relative;
+    display: flex;
+    background-color: #4d4d4d;
+    border-radius: 16px;
+    height: 4px;
+    width: 100%;
+    cursor: pointer;
+}
+
+.volume-bar-fill {
+    position: absolute;
+    bottom: 0%;
+    left: 0;
+    background-color: #ffffff;
+    border-radius: 16px;
+    height: 100%;
+    width: 100%;
+    transition: width 0.2s linear;
+}
+
+.volume-controller:hover .volume-bar-fill {
+    background-color: #1db954;
+}
+
+.volume-bar-circle {
+    position: absolute;
+    bottom: -110%;
+    left: 100%;
+    transform: translate(-50%);
+    transition: left 0.2s linear;
+    background-color: #ffffff;
+    /*border: #ffffff 1px solid;*/
+    border-radius: 50%;
+    width: 12px;
+    height: 12px;
+    display: none;
+}
+
+.volume-controller:hover .volume-bar-circle {
+    display: block;
+}
+
+@media screen and (max-width: 1024px) {
+    .left-container {
+        position: absolute;
+        left: -150%;
+        transition: all 0.5s linear;
+        z-index: 1;
+        width: 54%;
+    }
+
+    .song-list {
+        height: calc(90% - 20px);
+        overflow-y: auto;
+    }
+
+    .menu {
+        display: block;
+        position: relative;
+        left: 2%
+    }
+
+    .right-container {
+        width: 100%;
+    }
+
+    .website-logo {
+        position: relative;
+        left: -18.5%;
+        padding: 0;
+    }
+
+    .home-search-bar {
+        position: relative;
+        left: -25%;
+    }
+
+    .input-field {
+        width: 82%;
+    }
+    
+    .song-time-bar {
+        position: relative;
+        top: calc(0% - -12px);
+    }
+
+    .volume-controller:hover .volume-image:hover .seek-bar-fill {
+        background-color: #1db954;
+    }
+
+    .volume-controller:hover .volume-image:hover .seek-bar-circle {
+        display: block;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .song-list {
+        height: calc(90% - 25px);
+        overflow-y: auto;
+    }
+
+    .website-logo {
+        position: relative;
+        left: calc(-20% + 10px);
+        padding: 0;
+    }
+
+    .home-search-bar {
+        position: relative;
+        left: -33%;
+        width: 48%;
+    }
+
+    .input-field {
+        width: calc(84% - 25px);
+    }
+
+    .bottom-container {
+        flex-direction: column;
+    }
+
+    .song-info p {
+        justify-content: center;
+        width: 100%;
+    }
+
+    .play-bar {
+        position: relative;
+        bottom: 0%;
+        height: 80%;
+    }
+
+    .song-time-bar {
+        top: calc(100% - -16px);
+    }
+
+    .sound {
+        position: relative;
+        top: 56%;
+        width: 100%;
+        justify-content: center;
+        padding: 0;
+    }
+
+    .song-time-bar:hover .seek-bar-fill {
+        background-color: #1db954;
+    }
+
+    .song-time-bar:hover .seek-bar-circle {
+        display: block;
+    }
+
+    .cardsContainer {
+        justify-content: normal;
+    }
+    
+}
+
+@media screen and (max-width: 440px) {
+    .song-list {
+        height: calc(90% - 30px);
+        overflow-y: auto;
+    }
+
+    .left-container {
+        position: absolute;
+        left: -150%;
+        transition: all 0.5s linear;
+        z-index: 1;
+        width: 100%;
+    }
+
+    .menu {
+        display: block;
+        position: relative;
+        left: 2%;
+        min-width: 24px;
+    }
+
+    .right-container {
+        width: 100%;
+    }
+
+    .website-logo {
+        position: relative;
+        left: -18%;
+        padding: 0;
+    }
+
+    .home-search-bar {
+        justify-content: flex-start;
+        left: -39%;
+        width: 100%;
+    }
+
+    .search-bar {
+        position: relative;
+        min-width: 48px;
+        width: 48px;
+        min-width: 48px;
+        height: 48px;
+    }
+
+    .input-field {
+        display: none;
+        width: calc(78% + -15px);
+    }
+
+    .search-bar {
+        transition: width 0.1s ease-in-out;
+        overflow: hidden;
+        gap: 0px;
+    }
+    
+    .search-bar.expanded {
+        width: 200%;
+        gap: 1px;
+        justify-content: space-between;
+        padding: 0 0 0 10px;
+        margin-left: min(-65%, -96px);
+        margin-right: min(-54%, -46px);
+    }
+
+    .bottom-container {
+        flex-direction: column;
+    }
+    
+    .song-info {
+        position: relative;
+        bottom: 7%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .play-bar {
+        flex-direction: column;
+        bottom: 5%;
+        
+    }
+
+    .song-time-bar {
+        top: 200%;
+    }
+ 
+    .sound {
+        top: 64%;
+    }
+    
+    .song-time-bar:hover .seek-bar-fill {
+        background-color: #1db954;
+    }
+
+    .song-time-bar:hover .seek-bar-circle {
+        display: block;
+    }
+
+    .cardsContainer {
+        justify-content: space-evenly;
+    }
+}
+
+@media screen and (max-width: 384px) {
+    .input-field {
+        width: 70%;
+    }
+
+    .search-bar.expanded {
+        margin-right: min(-88px, -21%);
+        margin-left: min(-134px, -12%);
+    }
+
+    .card {
+        width: 75%;
+    }
+
+    .card-image {
+        height: 295.36px;
+    }
+
+    .card-play-icon {
+        opacity: 0;
+        width: 62.4px;
+        height: 62.4px;
+        left: 53%;
+        bottom: 0px;
+    }
+
+    .card:hover .card-play-icon {
+        bottom: 23%;
+    }
+}
