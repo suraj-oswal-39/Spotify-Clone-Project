@@ -87,7 +87,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 //display all the albums on the right container
 async function displayAlbums() {
-    let response = await fetch(`./songs/`); //here i made change in path 'http://127.0.0.1:3690/songs/'
+    let response = await fetch(`./songs/`); //here i made change in path 'http://127.0.0.1:3690/songs/' or 'https://suraj-oswal-39.github.io/Spotify-Clone-Project/songs/'
     let responseText = await response.text();
     // here, we create a div element and store the response in it
     let div = document.createElement("div");
@@ -100,7 +100,7 @@ async function displayAlbums() {
         if (element.href.includes("songs/")) {
             let albums = decodeURI(element.href.split("/").pop())
             //get the metadata of the albums
-            let response = await fetch(`./songs/${albums}/info.json`); //here i made change in path 'http://127.0.0.1:3690/songs/${albums}/info.json'
+            let response = await fetch(`./songs/${albums}/info.json`); //here i made change in path 'http://127.0.0.1:3690/songs/${albums}/info.json' or 'https://suraj-oswal-39.github.io/Spotify-Clone-Project/songs/${albums}/info.json'
             let responseJson = await response.json();
             let cardsContainer = document.querySelector(".cardsContainer");
             cardsContainer.innerHTML = cardsContainer.innerHTML +
@@ -131,7 +131,7 @@ async function getSongs(folder) {
     currentFolder = folder.split("songs/")[1];
     //console.log("current folder for fetch: " + currentFolder);
     // here, we fetch the songs from songs folder
-    let response = await fetch(`./songs/${currentFolder}/`); //here i made change in path 'http://127.0.0.1:3690/songs/${currentFolder}/'
+    let response = await fetch(`./songs/${currentFolder}/`); //here i made change in path 'http://127.0.0.1:3690/songs/${currentFolder}/' or 'https://suraj-oswal-39.github.io/Spotify-Clone-Project/songs/${currentFolder}/'
     let responseText = await response.text();
     // here, we create a div element and store the response in it
     let div = document.createElement("div");
