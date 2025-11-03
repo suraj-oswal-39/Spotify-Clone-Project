@@ -1,0 +1,20 @@
+{
+  "Brent Morgan": {
+    "title": "Brent Morgan",
+    "cover": "songs/Brent Morgan/cover.jpg",
+    "songs": [
+      "songs/Brent Morgan/Brent Morgan Gonna Be Okay.mp3",
+      "songs/Brent Morgan/I Got You.mp3",
+      "songs/Brent Morgan/Some Days.mp3"
+    ]
+  },
+  "Guitar Girl Relaxing Music": {
+    "title": "Guitar Girl Relaxing Music",
+    "cover": "songs/Guitar Girl Relaxing Music/cover.jpg",
+    "songs": [
+      "songs/Guitar Girl Relaxing Music/A Day in October - Guitar Girl Relaxing Music.mp3",
+      "songs/Guitar Girl Relaxing Music/A Spring Day - Guitar Girl Relaxing Music.mp3",
+      "songs/Guitar Girl Relaxing Music/A Trip for You - Guitar Girl Relaxing Music.mp3"
+    ]
+  }
+}
