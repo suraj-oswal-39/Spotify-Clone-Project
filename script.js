@@ -89,7 +89,7 @@ document.addEventListener("DOMContentLoaded", () => {
 //display all the albums on the right container
 async function displayAlbums() {
   let response = await fetch("./songs.json"); //here change
-  let albums = await response.json();
+  albums = await response.json();
   let cardsContainer = document.querySelector(".cardsContainer");
   cardsContainer.innerHTML = "";
 
@@ -358,6 +358,7 @@ document.querySelector(".volume-image").addEventListener("click", () => {
     }
     isMuted = !isMuted;
 });
+
 
 
 
