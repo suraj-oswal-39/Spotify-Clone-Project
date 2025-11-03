@@ -10,6 +10,7 @@ let isMuted = true;
 let selectedSong;
 let selectedSongIndex = 0;
 let songIndex = 0;
+let albums = {}; // make albums global
 
 // here, when i click the menu icon, left container will display and click again to hide it. 
 document.querySelector(".menu").addEventListener("click", () => {
@@ -87,7 +88,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 //display all the albums on the right container
 async function displayAlbums() {
-  let response = await fetch("songs.json"); //here change
+  let response = await fetch("./songs.json"); //here change
   let albums = await response.json();
   let cardsContainer = document.querySelector(".cardsContainer");
   cardsContainer.innerHTML = "";
@@ -103,8 +104,10 @@ async function displayAlbums() {
   }
 
   // Load first album by default
-  let firstAlbumKey = Object.keys(albums)[0];
-  await getSongs(firstAlbumKey, albums[firstAlbumKey].songs);
+  if (Object.keys(albums).length > 0) {
+      let firstAlbumKey = Object.keys(albums)[0];
+      await getSongs(firstAlbumKey, albums[firstAlbumKey].songs);
+  }
 
   // Load playlist when card is clicked
   Array.from(document.querySelectorAll(".card")).forEach(card => {
@@ -157,7 +160,7 @@ let playMusic = (track, pause = false) => {
     // It updates the play button icon to pause button icon and title to 'pause'
     document.querySelector("#play").src = "SVGs/pause-icon.svg";
     document.querySelector("#play").title = "Pause";
-    currentSong.src = `songs/${currentFolder}/${track}.mp3`
+    currentSong.src = albums[currentFolder].songs[selectedSongIndex];
     //console.log("currentSong.src = " + currentSong.src);
     // It updates the song title of the selected song
     document.querySelector(".song-info > p").innerText = decodeURI(track);
@@ -347,6 +350,7 @@ document.querySelector(".volume-image").addEventListener("click", () => {
     }
     isMuted = !isMuted;
 });
+
 
 
 
