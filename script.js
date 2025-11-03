@@ -130,9 +130,10 @@ async function getSongs(folder, songList) {
   songUl.innerHTML = "";
 
   for (let song of songs) {
-    songUl.innerHTML += `
-      <li>
-       <svg class="music-icon-size" viewBox="0 0 24 24" fill="transparent" xmlns="http://www.w3.org/2000/svg">
+        songUl.innerHTML = songUl.innerHTML +
+            `<li>    
+            <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+            <svg class="music-icon-size" viewBox="0 0 24 24" fill="transparent" xmlns="http://www.w3.org/2000/svg">
                 <g id="SVGRepo_bgCarrier" stroke-width="0"/>
                 <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/>
                 <g id="SVGRepo_iconCarrier"> 
@@ -143,13 +144,13 @@ async function getSongs(folder, songList) {
                     <path opacity="0.5" d="M7 11V2C7 4.07107 8.75736 5 10 5M7 10.5C7 11.8807 5.88071 13 4.5 13C3.11929 13 2 11.8807 2 10.5C2 9.11929 3.11929 8 4.5 8C5.88071 8 7 9.11929 7 10.5Z" stroke="#b3b3b3" class="music-icon-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                 </g>
             </svg>
-        <p class="song-title">${song}</p>
-        <div class="play-now">
-          <span>Play Now</span>
-          <svg xmlns="http://www.w3.org/2000/svg" stroke="#ffffff" stroke-width="1.5" fill="transparent" height="16" width="16" viewBox="0 0 16 16"><path d="M3 1.713a.7.7 0 0 1 1.05-.607l10.89 6.288a.7.7 0 0 1 0 1.212L4.05 14.894A.7.7 0 0 1 3 14.288V1.713z"></path></svg>
-        </div>
-      </li>`;
-  }
+            <p class="song-title">${song}</p>
+            <div class="play-now">
+                <span>Play Now</span>
+                <svg xmlns="http://www.w3.org/2000/svg" stroke="#ffffff" stroke-width="1.5" fill="transparent" height="16" width="16" data-encore-id="icon" role="img" aria-hidden="true" viewBox="0 0 16 16"><path d="M3 1.713a.7.7 0 0 1 1.05-.607l10.89 6.288a.7.7 0 0 1 0 1.212L4.05 14.894A.7.7 0 0 1 3 14.288V1.713z"></path></svg>
+            </div>
+        </li>`;
+    }
 
   // Attach click events
   Array.from(document.querySelectorAll(".song-list li")).forEach(songList => {
@@ -357,6 +358,7 @@ document.querySelector(".volume-image").addEventListener("click", () => {
     }
     isMuted = !isMuted;
 });
+
 
 
 
