@@ -87,112 +87,70 @@ document.addEventListener("DOMContentLoaded", () => {
 
 //display all the albums on the right container
 async function displayAlbums() {
-    let response = await fetch(`https://suraj-oswal-39.github.io/Spotify-Clone-Project/songs/`); //here i made change in path 'http://127.0.0.1:3690/songs/' or 'https://suraj-oswal-39.github.io/Spotify-Clone-Project/songs/'
-    let responseText = await response.text();
-    // here, we create a div element and store the response in it
-    let div = document.createElement("div");
-    div.innerHTML = responseText;
-    let FAs = div.getElementsByTagName("a");
-    //FAs stand for Folder Anchors 
-    let arrayFAs = Array.from(FAs);
-    for (let index = 0; index < arrayFAs.length; index++) {
-        let element = arrayFAs[index];
-        if (element.href.includes("songs/")) {
-            let albums = decodeURI(element.href.split("/").pop())
-            //get the metadata of the albums
-            let response = await fetch(`./songs/${albums}/info.json`); //here i made change in path 'http://127.0.0.1:3690/songs/${albums}/info.json' or 'https://suraj-oswal-39.github.io/Spotify-Clone-Project/songs/${albums}/info.json'
-            let responseJson = await response.json();
-            let cardsContainer = document.querySelector(".cardsContainer");
-            cardsContainer.innerHTML = cardsContainer.innerHTML +
-                `<div data-folder="${responseJson.title}" class="card">
-                    <img src="songs/${responseJson.title}/cover.jpg" class="card-image">
-                    <img src="SVGs/card-play-icon.svg" class="card-play-icon">
-                    <div class="card-text">${responseJson.title}</div>
-                </div>`;   
-        }
-    }; 
+  let response = await fetch("./songs.json");
+  let albums = await response.json();
+  let cardsContainer = document.querySelector(".cardsContainer");
+  cardsContainer.innerHTML = "";
 
-   //By default first folder is loaded
-    const firstFolder = arrayFAs.find(fa => fa.href.includes("songs/"));
-    if (firstFolder) {
-        await getSongs(`songs/${decodeURI(firstFolder.href.split("/").pop())}`);
-    }
-    
-    // this is alternative way to load a first folder by default (3 index) just remove double // and make pervious way/code comments but if this also not work then check console.log(arrayFAs) and it shows which index is "a.icon.icon-directory" then use that index such as arrayFAs[3] or arrayFAs[5] etc.
-    // console.log(arrayFAs);
-    // getSongs(`songs/${decodeURI(arrayFAs[3].href.split("/").pop())}`);
+  for (let key in albums) {
+    let album = albums[key];
+    cardsContainer.innerHTML += `
+      <div data-folder="${album.title}" class="card">
+        <img src="${album.cover}" class="card-image">
+        <img src="SVGs/card-play-icon.svg" class="card-play-icon">
+        <div class="card-text">${album.title}</div>
+      </div>`;
+  }
 
-    //load the playlist whenever card is clicked
-    Array.from(document.querySelectorAll(".card")).forEach(c => {
-        c.addEventListener("click", async itemC => {
-            await getSongs(`songs/${itemC.target.parentElement.dataset.folder}`);
-        })
-    })
+  // Load first album by default
+  let firstAlbumKey = Object.keys(albums)[0];
+  await getSongs(firstAlbumKey, albums[firstAlbumKey].songs);
+
+  // Load playlist when card is clicked
+  Array.from(document.querySelectorAll(".card")).forEach(card => {
+    card.addEventListener("click", async () => {
+      let folder = card.dataset.folder;
+      await getSongs(folder, albums[folder].songs);
+    });
+  });
 }
 
 displayAlbums();
 
 
 // here, we get a song from songs folder and and store in array  
-async function getSongs(folder) {
-    currentFolder = folder.split("songs/")[1];
-    //console.log("current folder for fetch: " + currentFolder);
-    // here, we fetch the songs from songs folder
-    let response = await fetch(`../songs/${currentFolder}/`); //here i made change in path 'http://127.0.0.1:3690/songs/${currentFolder}/' or 'https://suraj-oswal-39.github.io/Spotify-Clone-Project/songs/${currentFolder}/'
-    let responseText = await response.text();
-    // here, we create a div element and store the response in it
-    let div = document.createElement("div");
-    div.innerHTML = responseText;
-    // here, we get all the anchor tags from the div element
-    let as = div.getElementsByTagName("a");
-    // here, we create an empty array to store the all songs
-    songs = [];
-    for (let index = 0; index < as.length; index++) {
-        let element = as[index];
-        if (element.href.endsWith(".mp3")) {
-            // split, it return substrings array from whole string and split specific substring. 
-            songs.push(decodeURIComponent(element.href.split(`/`).pop().replace(".mp3", "")));
-        }
-    }
+async function getSongs(folder, songList) {
+  currentFolder = folder;
+  songs = songList.map(path => decodeURIComponent(path.split("/").pop().replace(".mp3", "")));
 
-    // here, selecting all songs from the unordered list and displaying them.
-    let songUl = document.querySelector(".song-list").getElementsByTagName("ul")[0]
-    songUl.innerHTML = "";
-    for (let song of songs) {
-        songUl.innerHTML = songUl.innerHTML +
-            `<li>    
-            <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-            <svg class="music-icon-size" viewBox="0 0 24 24" fill="transparent" xmlns="http://www.w3.org/2000/svg">
-                <g id="SVGRepo_bgCarrier" stroke-width="0"/>
-                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/>
-                <g id="SVGRepo_iconCarrier"> 
-                    <path d="M12 19.5C12 20.8807 10.8807 22 9.5 22C8.11929 22 7 20.8807 7 19.5C7 18.1193 8.11929 17 9.5 17C10.8807 17 12 18.1193 12 19.5Z" stroke="#b3b3b3" class="music-icon-stroke" stroke-width="1.5"/>
-                    <path d="M22 17.5C22 18.8807 20.8807 20 19.5 20C18.1193 20 17 18.8807 17 17.5C17 16.1193 18.1193 15 19.5 15C20.8807 15 22 16.1193 22 17.5Z" stroke="#b3b3b3" class="music-icon-stroke" stroke-width="1.5"/> 
-                    <path d="M22 8L12 12" stroke="#b3b3b3" class="music-icon-stroke" stroke-width="1.5" stroke-linecap="round"/> 
-                    <path d="M14.4556 5.15803L14.7452 5.84987L14.4556 5.15803ZM16.4556 4.32094L16.1661 3.62909L16.4556 4.32094ZM21.1081 3.34059L20.6925 3.96496L20.6925 3.96496L21.1081 3.34059ZM12.75 19.0004V8.84787H11.25V19.0004H12.75ZM22.75 17.1542V8.01078H21.25V17.1542H22.75ZM14.7452 5.84987L16.7452 5.01278L16.1661 3.62909L14.1661 4.46618L14.7452 5.84987ZM22.75 8.01078C22.75 6.67666 22.752 5.59091 22.6304 4.76937C22.5067 3.93328 22.2308 3.18689 21.5236 2.71622L20.6925 3.96496C20.8772 4.08787 21.0473 4.31771 21.1466 4.98889C21.248 5.67462 21.25 6.62717 21.25 8.01078H22.75ZM16.7452 5.01278C18.0215 4.47858 18.901 4.11263 19.5727 3.94145C20.2302 3.77391 20.5079 3.84204 20.6925 3.96496L21.5236 2.71622C20.8164 2.24554 20.0213 2.2792 19.2023 2.48791C18.3975 2.69298 17.3967 3.114 16.1661 3.62909L16.7452 5.01278ZM12.75 8.84787C12.75 8.18634 12.751 7.74991 12.7875 7.41416C12.822 7.09662 12.8823 6.94006 12.9594 6.8243L11.7106 5.99325C11.4527 6.38089 11.3455 6.79864 11.2963 7.25218C11.249 7.68752 11.25 8.21893 11.25 8.84787H12.75ZM14.1661 4.46618C13.5859 4.70901 13.0953 4.91324 12.712 5.12494C12.3126 5.34549 11.9686 5.60562 11.7106 5.99325L12.9594 6.8243C13.0364 6.70855 13.1575 6.59242 13.4371 6.438C13.7328 6.27473 14.135 6.10528 14.7452 5.84987L14.1661 4.46618Z" fill="#b3b3b3" class="music-icon-fill"/> 
-                    <path opacity="0.5" d="M7 11V2C7 4.07107 8.75736 5 10 5M7 10.5C7 11.8807 5.88071 13 4.5 13C3.11929 13 2 11.8807 2 10.5C2 9.11929 3.11929 8 4.5 8C5.88071 8 7 9.11929 7 10.5Z" stroke="#b3b3b3" class="music-icon-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                </g>
-            </svg>
-            <p class="song-title">${song}</p>
-            <div class="play-now">
-                <span>Play Now</span>
-                <svg xmlns="http://www.w3.org/2000/svg" stroke="#ffffff" stroke-width="1.5" fill="transparent" height="16" width="16" data-encore-id="icon" role="img" aria-hidden="true" viewBox="0 0 16 16"><path d="M3 1.713a.7.7 0 0 1 1.05-.607l10.89 6.288a.7.7 0 0 1 0 1.212L4.05 14.894A.7.7 0 0 1 3 14.288V1.713z"></path></svg>
-            </div>
-        </li>`;
-    }
+  let songUl = document.querySelector(".song-list").getElementsByTagName("ul")[0];
+  songUl.innerHTML = "";
 
-    
-    // select all song lists 'li' and attach event listener to all songs
-    Array.from(document.querySelector(".song-list").getElementsByTagName('li')).forEach(songList => {
-        songList.addEventListener("click", element => {
-            selectedSong = songList.querySelector(".song-title").innerText.trim();
-            playMusic(selectedSong, true);
-            let songTitles = Array.from(document.querySelectorAll(".song-title")).map(songTitle => songTitle.innerHTML);
-            selectedSongIndex = songTitles.findIndex(st => st == selectedSong);
-            console.log(selectedSongIndex);
-        })
-    })
+  for (let song of songs) {
+    songUl.innerHTML += `
+      <li>
+        <svg class="music-icon-size" viewBox="0 0 24 24" fill="transparent" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 19.5C12 20.8807 10.8807 22 9.5 22C8.11929 22 7 20.8807 7 19.5C7 18.1193 8.11929 17 9.5 17C10.8807 17 12 18.1193 12 19.5Z" stroke="#b3b3b3" stroke-width="1.5"/>
+          <path d="M22 17.5C22 18.8807 20.8807 20 19.5 20C18.1193 20 17 18.8807 17 17.5C17 16.1193 18.1193 15 19.5 15C20.8807 15 22 16.1193 22 17.5Z" stroke="#b3b3b3" stroke-width="1.5"/>
+        </svg>
+        <p class="song-title">${song}</p>
+        <div class="play-now">
+          <span>Play Now</span>
+          <svg xmlns="http://www.w3.org/2000/svg" stroke="#ffffff" stroke-width="1.5" fill="transparent" height="16" width="16" viewBox="0 0 16 16"><path d="M3 1.713a.7.7 0 0 1 1.05-.607l10.89 6.288a.7.7 0 0 1 0 1.212L4.05 14.894A.7.7 0 0 1 3 14.288V1.713z"></path></svg>
+        </div>
+      </li>`;
+  }
+
+  // Attach click events
+  Array.from(document.querySelectorAll(".song-list li")).forEach(songList => {
+    songList.addEventListener("click", () => {
+      selectedSong = songList.querySelector(".song-title").innerText.trim();
+      playMusic(selectedSong, true);
+      selectedSongIndex = songs.indexOf(selectedSong);
+    });
+  });
 }
+
 
 let playMusic = (track, pause = false) => {
     //console.log(`Playing: ${decodeURI(track)}`);
@@ -389,6 +347,7 @@ document.querySelector(".volume-image").addEventListener("click", () => {
     }
     isMuted = !isMuted;
 });
+
 
 
 
