@@ -87,9 +87,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 //display all the albums on the right container
+
 async function displayAlbums() {
-  let response = await fetch("./songs.json"); //here change
-  albums = await response.json();
+  let response = await fetch("./songs.json");
+  albums = await response.json(); // ✅ removed "let" to use global variable
+
   let cardsContainer = document.querySelector(".cardsContainer");
   cardsContainer.innerHTML = "";
 
@@ -105,8 +107,8 @@ async function displayAlbums() {
 
   // Load first album by default
   if (Object.keys(albums).length > 0) {
-      let firstAlbumKey = Object.keys(albums)[0];
-      await getSongs(firstAlbumKey, albums[firstAlbumKey].songs);
+    let firstAlbumKey = Object.keys(albums)[0];
+    await getSongs(firstAlbumKey, albums[firstAlbumKey].songs);
   }
 
   // Load playlist when card is clicked
@@ -121,12 +123,12 @@ async function displayAlbums() {
 displayAlbums();
 
 
-// here, we get a song from songs folder and and store in array  
+// here, we get songs from selected album and display them
 async function getSongs(folder, songList) {
   currentFolder = folder;
   songs = songList.map(path => decodeURIComponent(path.split("/").pop().replace(".mp3", "")));
 
-  let songUl = document.querySelector(".song-list").getElementsByTagName("ul")[0];
+  let songUl = document.querySelector(".song-list ul");
   songUl.innerHTML = "";
 
   for (let song of songs) {
@@ -151,37 +153,40 @@ async function getSongs(folder, songList) {
             </div>
         </li>`;
     }
-
-  // Attach click events
+  // Attach click events to songs
   Array.from(document.querySelectorAll(".song-list li")).forEach(songList => {
     songList.addEventListener("click", () => {
       selectedSong = songList.querySelector(".song-title").innerText.trim();
-      playMusic(selectedSong, true);
       selectedSongIndex = songs.indexOf(selectedSong);
+      playMusic(selectedSong, true);
     });
   });
 }
 
 
+// ✅ Fixed playMusic()
 let playMusic = (track, pause = false) => {
-    //console.log(`Playing: ${decodeURI(track)}`);
-    // It updates the play button icon to pause button icon and title to 'pause'
-    document.querySelector("#play").src = "SVGs/pause-icon.svg";
-    document.querySelector("#play").title = "Pause";
-    currentSong.src = albums[currentFolder].songs[selectedSongIndex];
-    //console.log("currentSong.src = " + currentSong.src);
-    // It updates the song title of the selected song
-    document.querySelector(".song-info > p").innerText = decodeURI(track);
-    // It updates the song current time and duration
-    currentSong.addEventListener("loadedmetadata", () => {
-        // convert current seconds into Minutes and seconds into Seconds
-        let minutesDuration = Math.floor(currentSong.duration / 60);
-        let secondsDuration = Math.floor(currentSong.duration % 60);
-        // update the song duration to the current duration and song time to the current time
-        document.querySelector(".song-duration").innerText = `${minutesDuration < 10 ? "0" + minutesDuration : minutesDuration}:${secondsDuration < 10 ? "0" + secondsDuration : secondsDuration}`;
-    })
-    currentSong.play();
-}
+  if (!albums[currentFolder] || !albums[currentFolder].songs) {
+    console.error("Album not found or missing songs for:", currentFolder);
+    return;
+  }
+
+  currentSong.src = albums[currentFolder].songs[selectedSongIndex];
+  document.querySelector("#play").src = "SVGs/pause-icon.svg";
+  document.querySelector("#play").title = "Pause";
+  document.querySelector(".song-info > p").innerText = decodeURI(track);
+
+  currentSong.addEventListener("loadedmetadata", () => {
+    let minutesDuration = Math.floor(currentSong.duration / 60);
+    let secondsDuration = Math.floor(currentSong.duration % 60);
+    document.querySelector(".song-duration").innerText =
+      `${minutesDuration < 10 ? "0" + minutesDuration : minutesDuration}:${
+        secondsDuration < 10 ? "0" + secondsDuration : secondsDuration
+      }`;
+  });
+
+  currentSong.play();
+};
 
 currentSong.addEventListener("timeupdate", () => {
     // get the current time and duration of the song
@@ -358,6 +363,7 @@ document.querySelector(".volume-image").addEventListener("click", () => {
     }
     isMuted = !isMuted;
 });
+
 
 
 
