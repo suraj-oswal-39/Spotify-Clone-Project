@@ -112,8 +112,15 @@ async function displayAlbums() {
         }
     }; 
 
-    //By default first folder is loaded
-    getSongs(`songs/${decodeURI(arrayFAs[4].href.split("/").pop())}`);
+   //By default first folder is loaded
+    const firstFolder = arrayFAs.find(fa => fa.href.includes("songs/"));
+    if (firstFolder) {
+        await getSongs(`songs/${decodeURI(firstFolder.href.split("/").pop())}`);
+    }
+    
+    // this is alternative way to load a first folder by default (3 index) just remove double // and make pervious way/code comments but if this also not work then check console.log(arrayFAs) and it shows which index is "a.icon.icon-directory" then use that index such as arrayFAs[3] or arrayFAs[5] etc.
+    // console.log(arrayFAs);
+    // getSongs(`songs/${decodeURI(arrayFAs[3].href.split("/").pop())}`);
 
     //load the playlist whenever card is clicked
     Array.from(document.querySelectorAll(".card")).forEach(c => {
@@ -382,5 +389,6 @@ document.querySelector(".volume-image").addEventListener("click", () => {
     }
     isMuted = !isMuted;
 });
+
 
 
