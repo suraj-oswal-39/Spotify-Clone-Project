@@ -22,23 +22,6 @@ __________________________________________________________________
 |   JSON               | For album metadata storage              |
 ------------------------------------------------------------------
 
-🗂️ Folder Structure ---
-Spotify-Clone-Project/
-│
-├── index.html
-├── script.js
-├── style.css
-│
-├── SVGs/                 # All SVG icons used in UI
-│
-├── songs/                # Contains album folders
-│   ├── album1/
-│   │   ├── song1.mp3
-│   │   ├── song2.mp3
-│   │   ├── cover.jpg
-│   │   └── info.json
-│   └── album2/ ...
-
 ⚙️ How to Run Locally ---
 
 
