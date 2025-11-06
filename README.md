@@ -23,12 +23,13 @@ __________________________________________________________________
 ------------------------------------------------------------------
 
 ⚙️ How to Run Locally ---
-1. download project zip file from this link.
+1. download project zip file from this link and extract it.
 https://drive.google.com/file/d/1u5KayoJ4L0maT6456jTSJj2Uw4Pf67jX/view?usp=drive_link
-2. install Visual Studio Code from microsoft store or click on this link
+2. install Visual Studio Code from microsoft store or click on this link and open application.
 https://apps.microsoft.com/detail/XP9KHM4BK9FZ7Q?hl=en-IN&gl=IN&ocid=pdpshare
-3. install live server extension in Visual Studio Code
-4. click on "Go live" at bottom.
+4. install live server extension in Visual Studio Code
+5. open project folder and click on index.html
+6. click on "Go live" at bottom.
 
 👨‍💻 Developer ---
 Developed by: Suraj Uttamchand Oswal
