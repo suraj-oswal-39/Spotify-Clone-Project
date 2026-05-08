@@ -117,3 +117,12 @@ Spotify-Clone-Project/
     ```
   
   * UI updated based on percentage
+
+---
+
+## 👨‍💻 Author
+
+**Suraj Uttamchand Oswal**
+📧 [surajoswal3@gmail.com](mailto:surajoswal3@gmail.com)
+
+---
