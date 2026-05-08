@@ -29,6 +29,7 @@ The application uses the JavaScript Audio API to manage music playback and DOM m
   * Adjustable volume using volume bar
   * Dynamic volume icons (mute, low, medium, high)
   * Mute / Unmute toggle
+    
 📁 Dynamic Album System
 
   * Albums loaded dynamically from /songs directory
@@ -40,6 +41,7 @@ The application uses the JavaScript Audio API to manage music playback and DOM m
   * Mobile-friendly layout
   * Expandable search bar for small screens
   * Sidebar toggle (menu icon)
+
 🎨 UI/UX Features
 
   * Smooth hover animations
