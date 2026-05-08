@@ -45,5 +45,13 @@ The application uses the JavaScript Audio API to manage music playback and DOM m
   * Custom scrollbar styling
   * Interactive song list
 
-
 ---
+
+## 🧩 Technologies Used
+| Technology           | Purpose                              |
+| -------------------- | ------------------------------------ |
+| **HTML5**            | Structure of the application         |
+| **CSS3**             | Styling, layout, responsiveness      |
+| **JavaScript (ES6)** | Logic, event handling, audio control |
+| **Audio API**        | Playing and controlling music        |
+| **JSON**             | Album metadata (title, info)         |
