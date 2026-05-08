@@ -95,9 +95,9 @@ Spotify-Clone-Project/
    
 3. Audio Playback
   * Uses:
-    ** new Audio() → creates audio object
-    ** currentSong.src → sets track
-    ** currentSong.play() → plays music
+    * new Audio() → creates audio object
+    * currentSong.src → sets track
+    * currentSong.play() → plays music
      
 4. Seek Bar Logic
 5. Volume Control
