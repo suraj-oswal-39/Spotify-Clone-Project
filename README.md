@@ -78,3 +78,17 @@ Spotify-Clone-Project/
 │
 └── README.md
 ```
+
+---
+
+## ⚙️ How It Works (Core Logic)
+
+1. Album Loading
+  * Fetches folder data using fetch()
+  * Extracts <a> tags from server response
+  * Loads album metadata (info.json)
+    
+3. Song Loading
+4. Audio Playback
+5. Seek Bar Logic
+6. Volume Control
