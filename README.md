@@ -55,3 +55,23 @@ The application uses the JavaScript Audio API to manage music playback and DOM m
 | **JavaScript (ES6)** | Logic, event handling, audio control |
 | **Audio API**        | Playing and controlling music        |
 | **JSON**             | Album metadata (title, info)         |
+
+---
+
+## 📂 Project Structure
+Spotify-Clone-Project/
+│
+├── index.html          # Main UI structure
+├── style.css           # Styling and responsiveness
+├── script.js           # Core functionality
+│
+├── SVGs/               # Icons used in UI
+│
+├── songs/              # Albums folder
+│   ├── Album1/
+│   │   ├── song1.mp3
+│   │   ├── cover.jpg
+│   │   └── info.json
+│   └── Album2/
+│
+└── README.md
