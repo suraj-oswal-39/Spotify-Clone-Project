@@ -100,4 +100,20 @@ Spotify-Clone-Project/
     * currentSong.play() → plays music
      
 4. Seek Bar Logic
-5. Volume Control
+  * Progress calculated using:
+    
+    ```
+    progress = (currentTime / duration) * 100
+    ```
+    
+  * Updates:
+    * ```.seek-bar-fill``` (width)
+    * ```.seek-bar-circle``` (position) 
+6. Volume Control
+  * Volume set using:
+    
+    ```
+    currentSong.volume = value (0 to 1)
+    ```
+  
+  * UI updated based on percentage
