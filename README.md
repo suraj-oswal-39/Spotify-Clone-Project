@@ -12,34 +12,35 @@ The application uses the JavaScript Audio API to manage music playback and DOM m
 
 ## 🚀 Features
 
-* 🎧 Music Player
+🎧 Music Player
 
   * Play / Pause functionality
   * Foreign Key
   * NOT NULL
   * AUTO_INCREMENT
   * DEFAULT values
-* 📄 ⏱️ Seek Bar (Progress Control)
+⏱️ Seek Bar (Progress Control)
 
   * Real-time song progress update
   * Click to jump to any part of the song
   * Interactive hover/touch behavior
-* 🔊 Volume Control
+🔊 Volume Control
 
   * Adjustable volume using volume bar
   * Dynamic volume icons (mute, low, medium, high)
   * Mute / Unmute toggle
-* 📁 Dynamic Album System
+📁 Dynamic Album System
+
   * Albums loaded dynamically from /songs directory
   * Reads metadata from info.json
   * Displays album cards with cover images
 
-* 📱 Responsive UI
+📱 Responsive UI
 
   * Mobile-friendly layout
   * Expandable search bar for small screens
   * Sidebar toggle (menu icon)
-* 🎨 UI/UX Features
+🎨 UI/UX Features
 
   * Smooth hover animations
   * Dynamic title hover effect (letter-by-letter span)
