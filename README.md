@@ -1,38 +1,50 @@
---- 🎵 Spotify Clone Project ---
-A Spotify-inspired music player built using HTML, CSS, and JavaScript.
-This project allows users to browse albums, play songs, control playback, and adjust volume — all within a clean, responsive interface.
+# 🎵 Sangeet – Spotify Clone Project
 
---- 🚀 Features ---
-🎧 Play / Pause / Next / Previous song controls
-⏱️ Seek bar showing song progress and duration
-🔊 Volume control bar with mute/unmute functionality
-📱 Responsive Design – optimized for both desktop and mobile screens
-🎨 Animated UI elements with smooth transitions
-💽 Dynamic Album Display – albums and songs loaded dynamically from folders
-🔁 Auto-play next song after one ends
-🧭 Interactive menu toggle for left container visibility
-🔄 Logo switch between Spotify and custom Sangeet branding
+A Spotify-inspired web music player built using HTML, CSS, and JavaScript, designed to simulate core music streaming functionalities like album browsing, song playback, and audio controls.
 
-__________________________________________________________________
-| 🧩 Technology        | Purpose                                 |
-| -------------------- | --------------------------------------- |
-|   HTML5              | Structure and layout of the web player  |
-|   CSS3               | Styling, responsiveness, and animations |
-|   JavaScript (ES6)   | Core logic and dynamic functionality    |
-|   JSON               | For album metadata storage              |
-------------------------------------------------------------------
+## 📌 Project Overview
 
-⚙️ How to Run Locally ---
-1. download project zip file from this link and extract it.
-https://drive.google.com/file/d/1u5KayoJ4L0maT6456jTSJj2Uw4Pf67jX/view?usp=drive_link
-2. install Visual Studio Code from microsoft store or click on this link and open application.
-https://apps.microsoft.com/detail/XP9KHM4BK9FZ7Q?hl=en-IN&gl=IN&ocid=pdpshare
-4. install live server extension in Visual Studio Code
-5. open project folder and click on index.html
-6. click on "Go live" at bottom.
+This project is a frontend-based music player that dynamically loads albums and songs from a folder structure. It provides an interactive UI similar to Spotify, including playback controls, seek bar, volume control, and responsive design for mobile devices.
 
-👨‍💻 Developer ---
-Developed by: Suraj Uttamchand Oswal
-Email: surajoswal3@gmail.com
+The application uses the JavaScript Audio API to manage music playback and DOM manipulation for dynamic content rendering.
+
+---
+
+## 🚀 Features
+
+* 🎧 Music Player
+
+  * Play / Pause functionality
+  * Foreign Key
+  * NOT NULL
+  * AUTO_INCREMENT
+  * DEFAULT values
+* 📄 ⏱️ Seek Bar (Progress Control)
+
+  * Real-time song progress update
+  * Click to jump to any part of the song
+  * Interactive hover/touch behavior
+* 🔊 Volume Control
+
+  * Adjustable volume using volume bar
+  * Dynamic volume icons (mute, low, medium, high)
+  * Mute / Unmute toggle
+* 📁 Dynamic Album System
+  * Albums loaded dynamically from /songs directory
+  * Reads metadata from info.json
+  * Displays album cards with cover images
+
+* 📱 Responsive UI
+
+  * Mobile-friendly layout
+  * Expandable search bar for small screens
+  * Sidebar toggle (menu icon)
+* 🎨 UI/UX Features
+
+  * Smooth hover animations
+  * Dynamic title hover effect (letter-by-letter span)
+  * Custom scrollbar styling
+  * Interactive song list
 
 
+---
