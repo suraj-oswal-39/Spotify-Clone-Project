@@ -59,6 +59,8 @@ The application uses the JavaScript Audio API to manage music playback and DOM m
 ---
 
 ## 📂 Project Structure
+
+```
 Spotify-Clone-Project/
 │
 ├── index.html          # Main UI structure
@@ -75,3 +77,4 @@ Spotify-Clone-Project/
 │   └── Album2/
 │
 └── README.md
+```
