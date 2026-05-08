@@ -88,7 +88,16 @@ Spotify-Clone-Project/
   * Extracts <a> tags from server response
   * Loads album metadata (info.json)
     
-3. Song Loading
-4. Audio Playback
-5. Seek Bar Logic
-6. Volume Control
+2. Song Loading
+  * Reads .mp3 files from selected folder
+  * Stores songs in an array (songs[])
+  * Dynamically renders song list
+   
+3. Audio Playback
+  * Uses:
+    ** new Audio() → creates audio object
+    ** currentSong.src → sets track
+    ** currentSong.play() → plays music
+     
+4. Seek Bar Logic
+5. Volume Control
