@@ -136,6 +136,24 @@ Spotify-Clone-Project/
 
 ---
 
+## ⚠️ Known Limitations
+  * Fetching folder structure may fail on mobile/local file system
+  * Requires server to read directory listing
+  * No backend/database integration yet
+  * Search feature UI exists but logic not implemented
+
+---
+
+## 💡 Future Improvements
+  * 🔍 Implement real search functionality
+  * 🗄️ Add backend (Node.js + MySQL)
+  * ❤️ Add favorites/playlist system
+  * 🎶 Drag-and-drop queue system
+  * 📡 Stream songs instead of local files
+  * 🔐 User authentication
+
+---
+
 ## 👨‍💻 Author
 
 **Suraj Uttamchand Oswal**
