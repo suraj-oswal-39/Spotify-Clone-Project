@@ -120,6 +120,22 @@ Spotify-Clone-Project/
 
 ---
 
+## ▶️ Setup Instructions
+
+1. Install required tools:
+   * Visual Studio Code with the ```live server``` extension
+
+2. Clone the repository:
+
+   ```
+   git clone https://github.com/suraj-oswal-39/Spotify-Clone-Project.git
+   ```
+
+3. Open in Visual Studio Code:
+   Click on ```Go Live``` at the bottom bar in Visual Studio Code 
+
+---
+
 ## 👨‍💻 Author
 
 **Suraj Uttamchand Oswal**
