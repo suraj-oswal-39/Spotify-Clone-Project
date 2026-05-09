@@ -123,7 +123,7 @@ Spotify-Clone-Project/
 ## ▶️ Setup Instructions
 
 1. Install required tools:
-   * Visual Studio Code with the ```live server``` extension
+  * Visual Studio Code with the ```Live Server``` extension
 
 2. Clone the repository:
 
@@ -132,7 +132,7 @@ Spotify-Clone-Project/
    ```
 
 3. Open in Visual Studio Code:
-   Click on ```Go Live``` at the bottom bar in Visual Studio Code 
+  * Click on ```Go Live``` at the bottom bar in Visual Studio Code 
 
 ---
 
